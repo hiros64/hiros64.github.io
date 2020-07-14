@@ -20,12 +20,32 @@
     <link rel="apple-touch-icon" href="images/icon.png">
 
   </head>
+  
+  <style>
+    .block {
+        background-color: blue;
+    }
+ 
+    .inline {
+        background-color: red;
+    }
+</style>
+  
+  
   <body>
     <div id="app">
         <p>{{ message }}</p>
         <button v-on:click="reverseMessage">Reverse Message</button>
-        <embed src="./contents/pdf/PDF4.pdf" type="application/pdf" type="application/pdf" width="100%" height="100%">
     </div>
+    
+    <span class=="inline">
+      <embed src="./contents/pdf/PDF4.pdf" type="application/pdf" type="application/pdf" width="100%" height="100%">
+    </span>
+    
+    <div class=="block">
+      <iframe src="./contents/pdf/PDF4.pdf" width="100%" height="100%"></iframe>
+    </div>
+    
     <script>
     <!-- service workerの登録関係 -->
     if ('serviceWorker' in navigator) {
