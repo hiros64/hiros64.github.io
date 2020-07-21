@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div.relative {
+      position: relative;
+      left: 30px;
+    }
+
+    iframe[src$=".pdf"]{
+      width:95%;
+      height:80vh;
+    }    
+  </style>
+
+<html lang="ja">
+  <head>
+    <title>16:07</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="images/icon.png" sizes="192x192"/>
+
+    <!-- アドレスバー等のブラウザのUIを非表示 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- ホーム画面に表示されるアプリ名 -->
+    <meta name="apple-mobile-web-app-title" content="PWA2">
+
+    <!-- ホーム画面に表示されるアプリアイコン -->
+    <link rel="apple-touch-icon" href="images/icon.png">
+
+  </head>
+
+ <!--
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div.relative {
+      position: relative;
+      left: 30px;
+    }
+    
+    iframe[src$=".pdf"]{
+      width:95%;
+      height:80vh;
+    }    
+  </style>
+-->
+  
+  <body>
+    <div style="background-color: white; height: 100vh;">
+        <div class="relative">
+          <p>pdf3(横スクロール)</p>
+          <iframe src="./contents/pdf/pmh.pdf" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+   
+    <script>
+      <!-- service workerの登録関係 -->
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      }    
+    </script>
+    
+  </body>
+
+</html>
