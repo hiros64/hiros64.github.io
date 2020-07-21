@@ -73,5 +73,16 @@
       }
     });
     </script>
+    
+    <script>
+      const element = document.querySelector('div');
+      element.addEventListener('touchstart', (e) => {
+      // is not near edge of view, exit
+      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+      // prevent swipe to navigate back gesture
+      e.preventDefault();
+      });
+    </script>
+    
   </body>
 </html>
