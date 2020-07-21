@@ -10,6 +10,14 @@
 
 <div style="background-color: red; height: 100vh;"></div>
 
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
 <script>
   const element = document.querySelector('div');
   element.addEventListener('touchstart', (e) => {
