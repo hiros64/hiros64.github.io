@@ -1,5 +1,15 @@
 
 <!DOCTYPE html>
+
+<div style="background-color: red; height: 40vh"></div>
+<script>
+  const element = document.querySelector("div");
+  element.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+  });
+</script>
+
+
 <html lang="ja">
   <head>
     <meta charset="utf-8">
@@ -64,7 +74,7 @@
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Aloha! Mahalo! 202007211145...'
+        message: 'Aloha! Mahalo! 202007211155...'
       },
       methods: {
         reverseMessage: function () {
@@ -74,8 +84,8 @@
     });
     </script>
 
+<!--
     <div style="height:100px">Our element that prevents navigation</div>
-
     <script>
       const element = document.querySelector('div');
       element.addEventListener('touchstart', (e) => {
@@ -83,6 +93,7 @@
       e.preventDefault();
       });
     </script>
+-->
 <!--
     <script>
       const element = document.querySelector('div');
