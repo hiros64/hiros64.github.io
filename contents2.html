@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>***</title>
+<div style="background-color: red; height: 40vh;"></div>
+<script>
+  const element = document.querySelector('div');
+  element.addEventListener('touchstart', (e) => {
+    // prevent swipe to navigate gesture
+    e.preventDefault();
+  });
+</script>
