@@ -84,6 +84,14 @@
     </script>
     
     <script>
+      const element = document.querySelector('div');
+      element.addEventListener('touchmove', (e) => {
+        // prevent swipe to navigate gesture
+        e.preventDefault();
+      });
+    </script>
+    
+    <script>
       <!-- service workerの登録関係 -->
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service_worker.js').then(function(registration) {
