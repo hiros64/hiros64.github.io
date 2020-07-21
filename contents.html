@@ -1,1 +1,77 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="images/icon.png" sizes="192x192"/>
+    <!-- vue.js　-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="manifest" href="manifest.json">
+    <title>Test</title>
+
+    <!-- アドレスバー等のブラウザのUIを非表示 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- ホーム画面に表示されるアプリ名 -->
+    <meta name="apple-mobile-web-app-title" content="PWA2">
+    <!-- ホーム画面に表示されるアプリアイコン -->
+    <link rel="apple-touch-icon" href="images/icon.png">
+
+  </head>
+  
+  <style>
+    iframe[src$=".pdf"]{
+      width:95%;
+      height:80vh;
+    }    
+    
+    .block {
+        background-color: blue;
+    }
+ 
+    .inline {
+        background-color: red;
+    }
+  </style>
+
+  <body>
+    <div id="app">
+        <p>{{ message }}</p>
+      <!--
+        <button v-on:click="reverseMessage">Reverse Message</button>
+      -->
+    </div>
+    <p>pdf1(縦スクロール)</p>
+    <iframe src="./contents/pdf/071413252769.pdf" width="100%" height="100%"></iframe>
+    <p>pdf2(縦スクロール)</p>
+    <iframe src="./contents/pdf/pm.pdf" width="100%" height="100%"></iframe>
+    <p>pdf3(横スクロール)</p>
+    <iframe src="./contents/pdf/pmh.pdf" width="100%" height="100%"></iframe>
+    
+    <script>
+    <!-- service workerの登録関係 -->
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+    });
+    }
+    <!-- vue.jsの設定関係 -->
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Aloha! Mahalo!'
+      },
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    });
+    </script>
+  </body>
+</html>
