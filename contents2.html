@@ -18,7 +18,7 @@
 
 <html lang="ja">
   <head>
-    <title>Contents2(1730)</title>
+    <title>Contents2(1735)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -71,9 +71,19 @@
         </div>
     </div>
 
+    <!--
     <script>
       const element = document.querySelector('div');
       element.addEventListener('touchstart', (e) => {
+        // prevent swipe to navigate gesture
+        e.preventDefault();
+      });
+    </script>
+    -->
+    
+    <script>
+      const element = document.querySelector('div');
+      element.addEventListener('touchmove', (e) => {
         // prevent swipe to navigate gesture
         e.preventDefault();
       });
