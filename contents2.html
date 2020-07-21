@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="manifest" href="manifest.json">
 
-    <title>14:36</title>
+    <title>14:45</title>
 
     <!-- アドレスバー等のブラウザのUIを非表示 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,6 +34,11 @@
       margin: 0;
     }
 
+    div.relative {
+      position: relative;
+      left: 30px;
+    }
+    
     iframe[src$=".pdf"]{
       width:95%;
       height:80vh;
@@ -49,9 +54,7 @@
   </style>
 
   <body>
-
     <div style="background-color: white; height: 100vh;">
-
         <div id="app">
             <p>{{ message }}</p>
           <!--
@@ -59,15 +62,20 @@
           -->
         </div>
 
-        <button onclick="goBack()">Go Back</button>
+        <div class="relative">
+          <a href="javascript:history.back();">一つ前のページへ戻る</a>
 
-        <p>pdf1(縦スクロール)</p>
-        <iframe src="./contents/pdf/071413252769.pdf" width="100%" height="100%"></iframe>
-        <p>pdf2(縦スクロール)</p>
-        <iframe src="./contents/pdf/pm.pdf" width="100%" height="100%"></iframe>
-        <p>pdf3(横スクロール)</p>
-        <iframe src="./contents/pdf/pmh.pdf" width="100%" height="100%"></iframe>
+          <p>pdf1(縦スクロール)</p>
+          <iframe src="./contents/pdf/071413252769.pdf" width="100%" height="100%"></iframe>
 
+          <p>pdf2(縦スクロール)</p>
+          <iframe src="./contents/pdf/pm.pdf" width="100%" height="100%"></iframe>
+
+          <p>pdf3(横スクロール)</p>
+          <iframe src="./contents/pdf/pmh.pdf" width="100%" height="100%"></iframe>
+
+        </div>
+      
     </div>
 
     <script>
