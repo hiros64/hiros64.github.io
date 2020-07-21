@@ -18,7 +18,7 @@
 
 <html lang="ja">
   <head>
-    <title>Contents2(1735)</title>
+    <title>Contents2(1740)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -59,7 +59,7 @@
   <body>
     <div style="background-color: white; height: 100vh;">
         <div class="relative">
-          <p><a href="./index.html">Topへ</a></p>
+          <div name="top"><p><a href="./index.html">Topへ</a></p></div>
           <!--
           <p>pdf1(縦スクロール)</p>
           <iframe src="./contents/pdf/071413252769.pdf" width="100%" height="100%"></iframe>
@@ -71,16 +71,18 @@
         </div>
     </div>
 
-    <!--
     <script>
       const element = document.querySelector('div');
-      element.addEventListener('touchstart', (e) => {
-        // prevent swipe to navigate gesture
-        e.preventDefault();
-      });
+      element.addEventListener(
+        'touchstart', 
+        (e) => {
+          if (e.name = 'top') return;
+          e.preventDefault();
+        }
+      );
     </script>
-    -->
-    
+
+    <!--
     <script>
       const element = document.querySelector('div');
       element.addEventListener('touchmove', (e) => {
@@ -88,6 +90,7 @@
         e.preventDefault();
       });
     </script>
+    -->
     
     <script>
       $(window).on('touchmove', (e) => {
